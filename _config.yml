@@ -9,7 +9,7 @@ name: mod_swift
 description: Apache modules in Swift
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: http://zeezide.com/img/mod_swift.svg
+avatar: http://zeezide.com/img/mod_swift-92x92.png
 
 timezone: Europe/Berlin
 
@@ -28,7 +28,7 @@ footer-links:
   linkedin:
   pinterest:
   rss: # just type anything here for a working RSS icon, make sure you set the "url" above!
-  twitter: noze_io
+  twitter: ar_institute
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/

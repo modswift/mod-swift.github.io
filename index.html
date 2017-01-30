@@ -1,1 +1,92 @@
-<h1>Hello Swift</h1>
+---
+layout: default
+---
+
+<p>
+  <img src="https://img.shields.io/badge/apache-2-yellow.svg" />
+  <img src="https://img.shields.io/badge/swift-3-blue.svg" />
+  <img src="https://img.shields.io/badge/os-macOS-green.svg?style=flat" />
+  <img src="https://travis-ci.org/AlwaysRightInstitute/mod_swift.svg?branch=master" />
+</p>
+
+<p style="text-align: justify;">
+  <b>mod_swift</b> is a technology demo which shows how to write native modules
+  for the
+  <a href="https://httpd.apache.org/">Apache Web Server</a>
+  in the 
+  <a href="http://swift.org/" target="swift">Swift</a>
+  programming language.
+</p>
+<p>
+  <em>Server Side Swift the right way</em>.
+</p>
+<p style="text-align: justify;">
+  <b>mod_swift</b> currently works with macOS 10.11/10.12.
+  A Linux port is considered.
+</p>
+
+<h3>Shows us some code!</h3>
+<p>
+  We provide a few examples:
+  <a href="https://github.com/AlwaysRightInstitute/mod_swift/tree/master/mods_baredemo"
+     >a 'raw' Apache Module</a>,
+  <a href="https://github.com/AlwaysRightInstitute/mod_swift/tree/master/mods_expressdemo"
+     >a demo for the bundled Express</a>,
+  as well as a
+  <a href="https://github.com/AlwaysRightInstitute/mod_swift/tree/master/mods_todomvc"
+     >TodoMVC backend</a>.
+  But here you go, the "standard" Node example, a
+  HelloWorld webpage:</p>
+<div class="highlighter-rouge">
+<pre class="code highlight"><code>func expressMain() {
+  apache.onRequest { req, res in
+    res.writeHead(200, [ "Content-Type": "text/html" ])
+    try res.end("&lt;h1&gt;Hello World&lt;/h1&gt;")
+  }
+}
+</code></pre></div>
+<p>Middleware using Express features like Mustache templates or
+   JSON support:</p>
+<div class="highlighter-rouge">
+<pre class="code highlight"><code>let app = apache.express(bodyParser.urlencoded(), 
+                         cookieParser(), session())
+  
+app.get("/express/cookies") { req, res, _ in
+  try res.json(req.cookies)  // returns all cookies as JSON
+}
+
+app.get("/express/") { req, res, _ in
+  let tagline = arc4random_uniform(taglines.count)
+
+  let values : [ String : Any ] = [
+    "tagline"     : taglines[tagline],
+    "viewCount"   : req.session["viewCount"] ?? 0,
+    "cowOfTheDay" : cows.vaca()
+  ]
+  try res.render("index", values)
+}
+</code></pre></div>
+
+<hr />
+
+<div class="posts">
+  {% for post in site.posts %}
+    <article class="post">
+
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+      
+      <div class="date">
+        <table border="0" width="100%"> <!-- old skool -->
+          <tr>
+            <td>{{ post.date | date: "%B %e, %Y" }}</td>
+            <td style="text-align:right;"><a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a></td>
+          </tr>
+        </table>
+      </div>
+    </article>
+  {% endfor %}
+</div>

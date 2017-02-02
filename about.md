@@ -32,7 +32,7 @@ an email to tell us why this is crap (or not?).
   
 ### Who
 
-mod_swifht_ is brought to you by
+mod_swift is brought to you by
 [The Always Right Institute](http://www.alwaysrightinstitute.com)
 and
 [ZeeZide](http://zeezide.de).

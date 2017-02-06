@@ -48,6 +48,7 @@ layout: default
   }
 }
 </code></pre></div>
+
 <p>Middleware using Express features like Mustache templates or
    JSON support:</p>
 <div class="highlighter-rouge">
@@ -67,6 +68,17 @@ app.get("/express/") { req, res, _ in
     "cowOfTheDay" : cows.vaca()
   ]
   try res.render("index", values)
+}
+</code></pre></div>
+
+<p>Access a SQL database using Apache 
+  <a href="https://httpd.apache.org/docs/2.4/mod/mod_dbd.html">mod_dbd</a>:</p>
+<div class="highlighter-rouge">
+<pre class="code highlight"><code>guard let con = req.dbdAcquire()                 else { return ... }
+guard let res = con.select("SELECT * FROM pets") else { return ... }
+
+while let row = res.next() {
+  req.puts("&lt;li&gt;\(row[0])&lt;/li&gt;")
 }
 </code></pre></div>
 

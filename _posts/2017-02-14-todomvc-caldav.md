@@ -91,7 +91,7 @@ The CalDAV support in this demo is by no means a fully conforming CalDAV
 server. But it gets the job done and carries all the basics you would need
 to build a proper server :-)
 
-It is a little more code that the JSON protocol, but reasonable, especially
+It is a little more code than the JSON protocol, but reasonable, especially
 considering the gains w/ supporting an actual standard.
 A lot of the code in there is generic and could be moved into a proper
 framework.

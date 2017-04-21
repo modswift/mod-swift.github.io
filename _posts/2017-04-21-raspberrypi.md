@@ -66,7 +66,7 @@ of course.
 Simple, don't forget to map the ports:
 
     docker run --name mod_swift -d -p 8042:8042 \
-               mod_swift/mod_swift-demo
+               modswift/mod_swift-demo
 
 And just invoke:
 

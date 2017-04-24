@@ -27,12 +27,13 @@ You know:
 
 ## Run Apache with mod_swift on a Raspberry Pi
 
-You know, this ...
+It is easy to run mod_swift and ApacheExpress on a Raspi. This, and all the
+other demos, including mod_dbd database access and the TodoMVC backend:
 
 <img src="https://github.com/AlwaysRightInstitute/mod_swift/raw/master/DocRoot/mod_swift-mustache-screenshot.jpg"
      align="center" />
      
-... on a Raspberry.
+... all on a Raspberry.
 
 ### Raspi
 

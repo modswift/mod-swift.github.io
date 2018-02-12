@@ -73,7 +73,7 @@ So what does the new mod_swift provide:
 
 In short:
 
-```
+```shell
 $ mkdir mods_helloworld && cd mods_helloworld
 $ swift apache init
 The Swift Apache build environment looks sound.
@@ -107,14 +107,14 @@ Note of interest: `0ms`, the duration of the request. Yes, it is that fast ;-)
 Head over to our new [documentation website](http://docs.mod-swift.org) for
 all the details, but on macOS w/ Homebrew do this to get up&running:
 
-```
+```shell
 brew tap modswift/mod_swift
 brew install mod_swift
 ```
 
 To check whether it worked:
 
-```
+```shell
 $ swift apache validate
 The Swift Apache build environment looks sound.
 

@@ -21,7 +21,10 @@ Ha! Modern servers often have *less than 1GB* of memory and often consume less
 than 3W of power.
 You know:
 
-<a href="http://www.switchdoc.com/2015/12/how-to-mount-and-use-an-i2c-compass-on-your-raspberry-piarduino-project/" target="ext"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRNf14IT4s_6EPzGOiWg5szAeFPKhNbLPGDK1wZn1saUcNwAbeJ" width="46%"/></a> vs. <a href="http://www.vanadiumcorp.com/news/grid-storage/416-apple-to-build-200mw-solar-farm-to-power-data-center" target="ext"><img src="http://core0.staticworld.net/images/article/2017/01/apple-solar-1-100705825-orig.jpg" width="46%"/></a>
+<a href="http://www.switchdoc.com/2015/12/how-to-mount-and-use-an-i2c-compass-on-your-raspberry-piarduino-project/" 
+   target="ext"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRNf14IT4s_6EPzGOiWg5szAeFPKhNbLPGDK1wZn1saUcNwAbeJ" 
+   width="46%"/></a> vs. <a href="http://www.vanadiumcorp.com/news/grid-storage/416-apple-to-build-200mw-solar-farm-to-power-data-center" 
+   target="ext"><img src="http://core0.staticworld.net/images/article/2017/01/apple-solar-1-100705825-orig.jpg" width="46%"/></a>
 
 <br>
 
@@ -66,8 +69,10 @@ of course.
 
 Simple, don't forget to map the ports:
 
-    docker run --name mod_swift -d -p 8042:8042 \
-               modswift/rpi-mod_swift-demo
+```shell
+docker run --name mod_swift -d -p 8042:8042 \
+           modswift/rpi-mod_swift-demo
+```
 
 And just invoke:
 

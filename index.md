@@ -1,5 +1,7 @@
 ---
 layout: default
+title: mod_swift ✭ Server Side Swift the right way!
+tags: apache swift server side mod_swift
 ---
 
 <p>
@@ -13,48 +15,45 @@ layout: default
   <img src="https://travis-ci.org/modswift/mod_swift.svg?branch=master" />
 </p>
 
-<p style="text-align: justify;">
-  <b>mod_swift</b> allows you to write native modules
-  for the
-  <a href="https://httpd.apache.org/">Apache Web Server</a>
-  in the 
-  <a href="http://swift.org/" target="swift">Swift</a>
-  programming language.
-</p>
-<p>
-  <center><em>Server Side Swift the right way</em>.</center>
-</p>
-<p style="text-align: justify;">
-  We recommend using it with the Homebrew Apache 2.4 on macOS 
-  (<tt>brew install httpd --with-mpm-event --with-http2</tt>),
-  or on Linux (tested with Ubuntu 16.04).
-</p>
+<b>mod_swift</b> allows you to write native modules
+for the
+<a href="https://httpd.apache.org/">Apache Web Server</a>
+in the 
+<a href="http://swift.org/" target="swift">Swift</a>
+programming language.
 
-<h3>Shows us some code!</h3>
-<p>
-  We provide a few examples:
-  <a href="https://github.com/AlwaysRightInstitute/mod_swift/tree/master/mods_baredemo"
-     >a 'raw' Apache Module</a>,
-  <a href="https://github.com/AlwaysRightInstitute/mod_swift/tree/master/mods_expressdemo"
-     >a demo for the bundled Express</a>,
-  as well as a
-  <a href="https://github.com/AlwaysRightInstitute/mod_swift/tree/master/mods_todomvc"
-     >TodoMVC backend</a>.
-  But here you go, the "standard" Node example, a
-  HelloWorld webpage:</p>
-<div class="highlighter-rouge">
-<pre class="code highlight"><code>func expressMain() {
+<center><em>Server Side Swift the right way</em>.</center>
+
+We recommend using it with the Homebrew Apache 2.4 on macOS:
+
+<center><code>brew install httpd --with-mpm-event --with-http2</code></center>
+
+or the same on Linux (tested with Ubuntu 16.04).
+
+### Shows us some code!
+
+We provide a few examples:
+[a 'raw' Apache Module](https://github.com/AlwaysRightInstitute/mod_swift/tree/master/mods_baredemo),
+[a demo for the bundled Express](https://github.com/AlwaysRightInstitute/mod_swift/tree/master/mods_expressdemo),
+as well as a
+[TodoMVC backend](https://github.com/AlwaysRightInstitute/mod_swift/tree/master/mods_todomvc").
+But here you go, the "standard" Node example, a
+HelloWorld webpage:
+
+```swift
+func expressMain() {
   apache.onRequest { req, res in
     res.writeHead(200, [ "Content-Type": "text/html" ])
     try res.end("&lt;h1&gt;Hello World&lt;/h1&gt;")
   }
 }
-</code></pre></div>
+```
 
-<p>Middleware using Express features like Mustache templates or
-   JSON support:</p>
-<div class="highlighter-rouge">
-<pre class="code highlight"><code>let app = apache.express(bodyParser.urlencoded(), 
+Middleware using Express features like Mustache templates or
+JSON support:
+
+```swift
+let app = apache.express(bodyParser.urlencoded(), 
                          cookieParser(), session())
   
 app.get("/express/cookies") { req, res, _ in
@@ -71,18 +70,19 @@ app.get("/express/") { req, res, _ in
   ]
   try res.render("index", values)
 }
-</code></pre></div>
+```
 
-<p>Access a SQL database using Apache 
-  <a href="https://httpd.apache.org/docs/2.4/mod/mod_dbd.html">mod_dbd</a>:</p>
-<div class="highlighter-rouge">
-<pre class="code highlight"><code>guard let con = req.dbdAcquire()                 else { return ... }
+Access a SQL database using Apache 
+[mod_dbd](https://httpd.apache.org/docs/2.4/mod/mod_dbd.html):
+
+```swift
+guard let con = req.dbdAcquire()                 else { return ... }
 guard let res = con.select("SELECT * FROM pets") else { return ... }
 
 while let row = res.next() {
   req.puts("&lt;li&gt;\(row[0])&lt;/li&gt;")
 }
-</code></pre></div>
+```
 
 The documentation can be found here:
 <a href="http://docs.mod-swift.org/">docs.mod-swift.org</a>.

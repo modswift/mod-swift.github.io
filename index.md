@@ -26,7 +26,7 @@ programming language.
 
 We recommend using it with the Homebrew Apache 2.4 on macOS:
 
-<center><code>brew install httpd --with-mpm-event --with-http2</code></center>
+<center><code>brew install httpd</code></center>
 
 or the same on Linux (tested with Ubuntu 16.04).
 

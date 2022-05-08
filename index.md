@@ -24,11 +24,11 @@ programming language.
 
 <center><em>Server Side Swift the right way</em>.</center>
 
-We recommend using it with the Homebrew Apache 2.4 on macOS:
+We recommend using it with the Homebrew Apache 2.6 on macOS:
 
 <center><code>brew install httpd</code></center>
 
-or the same on Linux (tested with Ubuntu 16.04).
+or the same on Linux (tested on various Ubuntu versions).
 
 ### Shows us some code!
 
@@ -44,7 +44,7 @@ HelloWorld webpage:
 func expressMain() {
   apache.onRequest { req, res in
     res.writeHead(200, [ "Content-Type": "text/html" ])
-    try res.end("&lt;h1&gt;Hello World&lt;/h1&gt;")
+    try res.end("<h1>Hello World</h1>")
   }
 }
 ```
@@ -80,7 +80,7 @@ guard let con = req.dbdAcquire()                 else { return ... }
 guard let res = con.select("SELECT * FROM pets") else { return ... }
 
 while let row = res.next() {
-  req.puts("&lt;li&gt;\(row[0])&lt;/li&gt;")
+  req.puts("<li>\(row[0])</li>")
 }
 ```
 

@@ -12,7 +12,6 @@ tags: apache swift server side mod_swift
   <img src="https://img.shields.io/badge/os-macOS-green.svg?style=flat" />
   <img src="https://img.shields.io/badge/os-tuxOS-green.svg?style=flat" />
   <img src="https://img.shields.io/badge/works%20on-Raspberry%20Pi-CA0B3D.svg?style=flat" />
-  <img src="https://travis-ci.org/modswift/mod_swift.svg?branch=master" />
 </p>
 
 <b>mod_swift</b> allows you to write native modules
